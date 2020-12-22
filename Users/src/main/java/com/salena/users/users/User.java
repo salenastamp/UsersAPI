@@ -6,19 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@ApiModelProperty(notes = "The user ID number")
 	private Long id;
 	
 	@Size(max=20)
+	@ApiModelProperty(notes = "The user's first name")
     private String first_name;
 	
 	@Size(min=20)
+	@ApiModelProperty(notes = "The user's last name")
 	private String last_name;
 	
 	@Size(min=4, max=20)
+	@ApiModelProperty(notes = "The state where the user lives")
 	private String state;
 	
 	public User(){
